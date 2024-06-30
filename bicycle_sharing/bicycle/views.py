@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from .models import Bicycle
+from .serializers import BicycleSerializer
+
+
+class BicycleListView(generics.ListAPIView):
+    queryset = Bicycle.accessible.all()
+    serializer_class = BicycleSerializer
+
