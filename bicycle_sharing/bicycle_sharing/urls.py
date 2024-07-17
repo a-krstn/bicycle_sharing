@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('bicycle.urls', namespace='bicycle')),
     path('api/v1/account/', include('account.urls', namespace='account')),
+    path('api/v1/order/', include('order.urls', namespace='order')),
 
     # simplejwt urls
     path('api/v1/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

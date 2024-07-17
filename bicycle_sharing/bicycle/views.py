@@ -10,6 +10,6 @@ class BicycleListView(generics.ListAPIView):
     Bicycle List View
     """
 
-    queryset = Bicycle.accessible.all()
+    queryset = Bicycle.accessible.filter(available=True)
     serializer_class = BicycleSerializer
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated,)

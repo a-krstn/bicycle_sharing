@@ -20,5 +20,5 @@ class Bicycle(models.Model):
         return self.color
 
     class Meta:
-        verbose_name = 'Велосипеды'
+        verbose_name = 'Велосипед'
         verbose_name_plural = 'Велосипеды'
