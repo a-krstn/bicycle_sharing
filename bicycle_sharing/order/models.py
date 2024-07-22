@@ -23,6 +23,10 @@ class Order(models.Model):
                                  verbose_name='Начало заказа')
     stop = models.DateTimeField(auto_now=True,
                                 verbose_name='Конец заказа')
+    price = models.DecimalField(max_digits=6,
+                                decimal_places=2,
+                                verbose_name='Стоимость',
+                                default=0)
 
     def __str__(self):
         return f'Заказ {self.pk}'
