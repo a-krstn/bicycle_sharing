@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -154,6 +155,7 @@ REST_FRAMEWORK = {
     ],
 
     'DATETIME_FORMAT': "%H:%M:%S %d.%m.%Y",
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 # simpleJWT settings
@@ -217,3 +219,12 @@ CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 CELERY_ACCEPT_BACKEND = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+
+# spectacular settings
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Bicycle Sharing API',
+    'DESCRIPTION': 'Bicycle Sharing Application',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
