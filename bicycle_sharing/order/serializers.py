@@ -26,18 +26,32 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = ('id', 'user', 'bicycle', 'completed', 'start', 'stop', 'price')
 
 
+class OrderStartSerializer(serializers.ModelSerializer):
+    """
+    Сериализатор начала заказа
+    """
+
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    bicycle = serializers.SlugRelatedField(slug_field='color',
+                                           queryset=Bicycle.accessible.all())
+
+    class Meta:
+        model = Order
+        fields = ('id', 'user', 'bicycle', 'start')
+
+
 class OrderStopSerializer(serializers.ModelSerializer):
     """
     Сериализатор завершения заказа
     """
 
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    bicycle = serializers.ReadOnlyField(source='bicycle.color')
     completed = serializers.ReadOnlyField()
-    price = serializers.ReadOnlyField()
 
     class Meta:
         model = Order
-        fields = ('id', 'user', 'completed', 'start', 'stop', 'price')
+        fields = ('id', 'user', 'bicycle', 'completed', 'start', 'stop')
 
     def update(self, instance, validated_data):
         instance.completed = True

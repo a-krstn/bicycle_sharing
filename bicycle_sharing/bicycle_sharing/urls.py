@@ -22,6 +22,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/drf-auth/', include('rest_framework.urls')),
+
+    # apps
     path('api/v1/', include('bicycle.urls', namespace='bicycle')),
     path('api/v1/account/', include('account.urls', namespace='account')),
     path('api/v1/order/', include('order.urls', namespace='order')),

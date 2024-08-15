@@ -18,6 +18,6 @@ def get_total_cost(order_id):
 
     order = get_object_or_404(Order, pk=order_id)
     rental_time = relativedelta(order.stop, order.start)
-    total_cost = (rental_time.hours * 60 + rental_time.minutes) * Decimal(7.6)
+    total_cost = (rental_time.hours * 60 + rental_time.minutes + round(rental_time.seconds / 60)) * Decimal(7.6)
     order.price = total_cost
     order.save()

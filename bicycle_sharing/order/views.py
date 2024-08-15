@@ -2,7 +2,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import generics, status, permissions, pagination, viewsets, mixins
 from rest_framework.response import Response
 
-from .serializers import OrderSerializer, OrderStopSerializer
+from .serializers import OrderSerializer, OrderStartSerializer, OrderStopSerializer
 from .models import Order
 from .tasks import get_total_cost
 
@@ -113,6 +113,8 @@ class OrderViewSet(viewsets.GenericViewSet,
         return Order.objects.filter(user=self.request.user)
 
     def get_serializer_class(self):
+        if self.action == 'create':
+            return OrderStartSerializer
         if self.action == 'update':
             return OrderStopSerializer
         return OrderSerializer
