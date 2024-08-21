@@ -137,4 +137,4 @@ class OrderViewSet(viewsets.GenericViewSet,
         serializer.save()
         get_total_cost.delay(instance.pk)
         return Response({"order": serializer.data},
-                        status=status.HTTP_201_CREATED)
+                        status=status.HTTP_200_OK)

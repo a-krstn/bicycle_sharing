@@ -22,3 +22,4 @@ class Bicycle(models.Model):
     class Meta:
         verbose_name = 'Велосипед'
         verbose_name_plural = 'Велосипеды'
+        ordering = ("color",)
