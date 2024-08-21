@@ -110,7 +110,7 @@ class OrderViewSet(viewsets.GenericViewSet,
     pagination_class = OrderPagination
 
     def get_queryset(self):
-        return Order.objects.filter(user=self.request.user)
+        return Order.objects.filter(user=self.request.user).select_related('bicycle')
 
     def get_serializer_class(self):
         if self.action == 'create':
