@@ -21,8 +21,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run Tests
         run: |
-          cd ./bicycle_sharing
-          echo "SECRET_KEY = 'django-insecure-dummy-secret'" > ./.env
+          echo "SECRET_KEY = 'django-insecure-dummy-secret'" >> ./.env
           echo -e "POSTGRES_DB = 'bicycle_db'" > ./.env
           echo -e "POSTGRES_USER = 'bicycle'" > ./.env
           echo -e "POSTGRES_PASSWORD = '12345'" > ./.env
