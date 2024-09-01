@@ -25,7 +25,7 @@ jobs:
           echo -e "POSTGRES_DB = 'bicycle_db'" > ./.env
           echo -e "POSTGRES_USER = 'bicycle'" > ./.env
           echo -e "POSTGRES_PASSWORD = '12345'" > ./.env
-          python 3 manage.py test
+          python3 manage.py test
 
 
 
