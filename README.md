@@ -14,5 +14,3 @@
 - Redis
 - Celery
 - Flower
-
-Some text
