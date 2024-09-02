@@ -22,9 +22,10 @@ jobs:
       - name: Run Tests
         run: |
           echo "SECRET_KEY = 'django-insecure-dummy-secret'" >> ./.env
-          echo -e "POSTGRES_DB = 'bicycle_db'" > ./.env
-          echo -e "POSTGRES_USER = 'bicycle'" > ./.env
-          echo -e "POSTGRES_PASSWORD = '12345'" > ./.env
+          echo -e "POSTGRES_DB = 'bicycle_db'" >> ./.env
+          echo -e "POSTGRES_USER = 'bicycle'" >> ./.env
+          echo -e "POSTGRES_PASSWORD = '12345'" >> ./.env
+          cd bicycle_sharing
           python3 manage.py test
 
 
