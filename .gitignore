@@ -15,3 +15,5 @@ celerybeat.pid
 
 /data
 mysite_data.json
+
+.coverage
