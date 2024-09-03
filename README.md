@@ -15,4 +15,3 @@
 - PostgreSQL
 - Redis
 - Celery
-- Flower
